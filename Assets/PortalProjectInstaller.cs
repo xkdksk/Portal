@@ -16,6 +16,8 @@ public class PortalProjectInstaller : MonoInstaller<PortalProjectInstaller>
         var playData = Container.Resolve<PlayData>();
         playData.Init();
         var ud = Container.Resolve<UserData>();
+
+        ud.Init();
         
 
     }

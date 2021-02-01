@@ -716,7 +716,7 @@ namespace UJ.Data.Editor
                 else
                 {
                     r.kindCode = row.kindCode;
-                    r.kor = row.kor;
+                    r.eng = row.eng;
                 }
 
 
