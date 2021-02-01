@@ -15,50 +15,50 @@ MonoBehaviour:
   strs:
   - code: 101
     kindCode: 1
-    kor: Swordman
-    eng: 
+    kor: 
+    eng: Swordman
   - code: 101
     kindCode: 2
-    kor: Story of the Swordman
-    eng: 
+    kor: 
+    eng: Story of the Swordman
   - code: 102
     kindCode: 1
-    kor: Witch
-    eng: 
+    kor: 
+    eng: Witch
   - code: 102
     kindCode: 2
-    kor: Story of the Witch
-    eng: 
+    kor: 
+    eng: Story of the Witch
   - code: 10101
     kindCode: 3
-    kor: Vanguard
-    eng: 
+    kor: 
+    eng: Vanguard
   - code: 10101
     kindCode: 4
-    kor: <color=#10FF6A>+{VanguardChance}%</color> extra damage of Last Attack
-    eng: 
+    kor: 
+    eng: <color=#10FF6A>+{VanguardChance}%</color> extra damage of Last Attack
   - code: 10102
     kindCode: 3
-    kor: Finisher
-    eng: 
+    kor: 
+    eng: Finisher
   - code: 10102
     kindCode: 4
-    kor: <color=#10FF6A>+{FinisherChance}%</color> Stun Chance by Last Attack
-    eng: 
+    kor: 
+    eng: <color=#10FF6A>+{FinisherChance}%</color> Stun Chance by Last Attack
   - code: 10201
     kindCode: 3
-    kor: Terrible Mistake
-    eng: 
+    kor: 
+    eng: Terrible Mistake
   - code: 10201
     kindCode: 4
-    kor: <color=#10FF6A>+{TerribleMistakeChance}%</color> chance to fire an extra
+    kor: 
+    eng: <color=#10FF6A>+{TerribleMistakeChance}%</color> chance to fire an extra
       Fireball
-    eng: 
   - code: 10202
     kindCode: 3
-    kor: Horrible Mistake
-    eng: 
+    kor: 
+    eng: Horrible Mistake
   - code: 10202
     kindCode: 4
-    kor: <color=#10FF6A>+{HorribleMistakeChance}%</color> chance to fire a huge Fireball
-    eng: 
+    kor: 
+    eng: <color=#10FF6A>+{HorribleMistakeChance}%</color> chance to fire a huge Fireball

@@ -51,7 +51,7 @@ namespace UJ.Data.Editor
                 if (workbook != null)
                 {
 
-                    strs = Reader.ReadFromExcel<Str>(workbook,"Str");
+                    strs = Reader.ReadFromExcel<Str>(workbook, "ExtStr");
                 }
                 else
                 {

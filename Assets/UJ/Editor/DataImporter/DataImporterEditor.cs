@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.IO;
+using System.Linq;
 
 namespace UJ.Data.Editor
 {
@@ -24,7 +25,14 @@ namespace UJ.Data.Editor
             Reader.FillStrs(gameData,Str.Strs);
      
             writeInfo writeInfo = new writeInfo();
-            writeInfo.ObjectToExcel(setting.excelBasePath + "strs.xlsx", Str.Strs);
+            writeInfo.ObjectToExcel(setting.excelBasePath + "strs.xlsx", Str.Strs.Select(l=>new ExtStr()
+            {
+                code=l.code,
+                kindCode=l.kindCode,
+                eng=l.eng,
+                kor=l.kor,
+                info= MultiLanguage.GetTableAndField(l.kindCode)
+            }).ToList());
 
         }
 

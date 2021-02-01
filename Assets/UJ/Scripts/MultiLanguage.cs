@@ -53,6 +53,12 @@ namespace UJ.Data
 
 
 
+    [Serializable]
+    public class ExtStr :Str
+    {
+        public string info;
+    }
+
 
     [Serializable]
     public class Str
@@ -61,12 +67,13 @@ namespace UJ.Data
     
         public enum Language
         {
-            Kor,Eng
+            Eng,Kor
         }
         public static Language CurrentLanguage;
         public int kindCode;
 
         public string kor,eng;
+
 
         static List<Str> _Strs;
 
@@ -139,6 +146,12 @@ namespace UJ.Data
         public static int GetCode(Type parentType, FieldInfo f)
         {
             return MultiLangDic[GetTypeName(parentType, f)];
+        }
+
+        public static string GetTableAndField(int code)
+        {
+            return MultiLangDic.First(l => l.Value == code).Key;
+
         }
 
         /*
@@ -270,7 +283,7 @@ namespace UJ.Data
                 if (f.GetCustomAttributes(false).Any(l => l is MultiLanguage))
                 {
 
-                    var kor = (string)f.GetValue(t);
+                    var eng = (string)f.GetValue(t);
 
                     var code =(int)t.GetType().GetField("code").GetValue(t);
 
@@ -280,7 +293,7 @@ namespace UJ.Data
                         code= code,
                //         kind=  GetTypeName(typeof(T),f) ,
                         kindCode = GetCode(typeof(T), f),
-                        kor =kor
+                        eng =eng
                     });
                   
                 }
@@ -291,8 +304,14 @@ namespace UJ.Data
 
 
 
+        public class TableField
+        {
+            public string tableName, fieldName;
+        }
+
         public static void FillMultiLangDic(IEnumerable<Type> types)
         {
+
             MultiLangDic.Clear();
 
             foreach (var type in types)
@@ -303,7 +322,9 @@ namespace UJ.Data
                     if (f.GetCustomAttributes(false).Any(l => l is MultiLanguage))
                     {
                         Console.WriteLine("Type " + type.Name + " " + f.Name);
+                        
                         MultiLangDic.Add(GetTypeName(type,f), MultiLangDic.Count+1);
+
                     }
                 }
             }

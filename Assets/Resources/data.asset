@@ -146,6 +146,7 @@ MonoBehaviour:
     prop: 101
     firstSkillCode: 10101
     secondSkillCode: 10102
+    price: 0
   - code: 102
     name: Witch
     desc: Story of the Witch
@@ -153,6 +154,7 @@ MonoBehaviour:
     prop: 102
     firstSkillCode: 10201
     secondSkillCode: 10202
+    price: 0
   CharacterLevel:
   - code: 1
     expCost: 10
