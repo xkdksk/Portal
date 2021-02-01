@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65100eb43b7e5b44ca923b8013cb8440, type: 3}
+  m_Name: strs
+  m_EditorClassIdentifier: 
+  strs:
+  - code: 101
+    kindCode: 1
+    kor: Swordman
+    eng: 
+  - code: 101
+    kindCode: 2
+    kor: Story of the Swordman
+    eng: 
+  - code: 102
+    kindCode: 1
+    kor: Witch
+    eng: 
+  - code: 102
+    kindCode: 2
+    kor: Story of the Witch
+    eng: 
+  - code: 10101
+    kindCode: 3
+    kor: Vanguard
+    eng: 
+  - code: 10101
+    kindCode: 4
+    kor: <color=#10FF6A>+{VanguardChance}%</color> extra damage of Last Attack
+    eng: 
+  - code: 10102
+    kindCode: 3
+    kor: Finisher
+    eng: 
+  - code: 10102
+    kindCode: 4
+    kor: <color=#10FF6A>+{FinisherChance}%</color> Stun Chance by Last Attack
+    eng: 
+  - code: 10201
+    kindCode: 3
+    kor: Terrible Mistake
+    eng: 
+  - code: 10201
+    kindCode: 4
+    kor: <color=#10FF6A>+{TerribleMistakeChance}%</color> chance to fire an extra
+      Fireball
+    eng: 
+  - code: 10202
+    kindCode: 3
+    kor: Horrible Mistake
+    eng: 
+  - code: 10202
+    kindCode: 4
+    kor: <color=#10FF6A>+{HorribleMistakeChance}%</color> chance to fire a huge Fireball
+    eng: 

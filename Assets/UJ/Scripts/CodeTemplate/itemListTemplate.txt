@@ -1,0 +1,15 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Data;
+
+public class UI_{{0}}List : TableViewController<{{0}}Instance>
+{
+
+    public void SetData(List<{{0}}Instance> list)
+    {
+        tableData = list;
+        UpdateContents();
+    }
+
+}

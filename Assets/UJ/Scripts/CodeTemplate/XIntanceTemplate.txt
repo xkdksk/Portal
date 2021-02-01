@@ -1,0 +1,83 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
+using UJ.Data;
+
+
+[Serializable]
+public class {{0}}Instance
+{
+    [NonSerialized]
+    public PropertiesData properties = new PropertiesData();
+
+
+    public int code;
+
+    public int {{0}}Code;
+    public bool isNew;
+    public int count;
+
+    public DateTime gotTime;
+
+    [NonSerialized]
+    {{0}} _protoData;
+    public int grade; //0 base
+    public int enforceLv;
+    public int level;
+    public bool isLock;
+
+
+
+    public int Category
+    {
+        get
+        {
+            return (int)properties.Get("Category");
+        }
+    }
+
+    public string CategoryStr
+    {
+        get
+        {
+            return EtcStr.FindStr("{{0}}Category" + properties.Get("Category")).ToString();
+        }
+    }
+
+
+
+
+    public {{0}} {{0}}Info
+    {
+        get
+        {
+            if (_protoData == null || _protoData.code != {{0}}Code)
+            {
+                _protoData = GameData.I.{{0}}.Find(l => l.code == {{0}}Code);
+            }
+
+            return _protoData;
+        }
+    }
+
+
+    internal void AssignNew{{0}}Code()
+    {
+        isNew = true;
+
+        var {{0}}Sys = UserData.Instance.{{0}}Container;
+        if ({{0}}Sys.{{0}}s.Count == 0)
+        {
+            code = 1;
+        }
+        else
+        {
+            code = {{0}}Sys.{{0}}s.Max(l => l.code) + 1;
+        }
+    }
+
+}
+

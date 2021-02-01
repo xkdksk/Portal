@@ -1,0 +1,108 @@
+﻿
+
+using System;
+using System.Collections.Generic;
+using UJ.Data;
+using System.Linq;
+
+using UnityEngine;
+using Data;
+
+[Serializable]
+public class {{0}}Container
+{
+    public List<{{0}}Instance> {{0}}s = new List<{{0}}Instance>();
+
+
+    public class {{0}}Event
+    {
+        public enum Type
+        {
+            Add,
+            Remove,
+            NewRemove,
+            EquipChange,
+            Enforce
+        }
+        public Type type;
+
+        public {{0}}Instance {{0}};
+
+    }
+    [NonSerialized]
+    {{0}}Event _{{0}}Event = new {{0}}Event();
+
+
+
+
+    public {{0}}Instance Add{{0}}(int {{0}}Code, int count)
+    {
+        var {{0}}Info = GameData.I.{{0}}.Find(l => l.code == {{0}}Code);
+        if ({{0}}Info == null)
+        {
+            Debug.LogError(" " + {{0}}Code + " 가 없습니다.");
+        }
+
+        return Add{{0}}({{0}}Info, count);
+    }
+
+    public {{0}}Instance Add{{0}}({{0}} {{0}}Info, int count = 1)
+    {
+
+        {{0}}Instance {{0}} = null;
+        
+        if ({{0}}Info.Stackable)
+        {
+            {{0}} = {{0}}s.FirstOrDefault(l => l.{{0}}Code == {{0}}Info.code);
+            if ({{0}} == null)
+            {
+                {{0}} = new {{0}}Instance()
+                {
+                    {{0}}Code = {{0}}Info.code,
+                    count = count
+                };
+                {{0}}.AssignNew{{0}}Code();
+
+                {{0}}s.Add({{0}});
+
+            }
+            else
+            {
+                {{0}}.isNew = true;
+                {{0}}.count += count;
+
+                PublishEvent({{0}}, {{0}}Event.Type.Add);
+
+            }
+            return {{0}};
+        }
+        
+
+
+        int i = 0;
+        for (i = 0; i < count; i++)
+        {
+            {{0}} = new {{0}}Instance()
+            {
+                {{0}}Code = {{0}}Info.code,
+                count = 1
+            };
+            {{0}}.AssignNew{{0}}Code();
+
+         //   {{0}}.SetPropVal();
+            {{0}}s.Add({{0}});
+
+            PublishEvent({{0}}, {{0}}Event.Type.Add);
+        }
+
+        return {{0}};
+    }
+
+    public void PublishEvent({{0}}Instance {{0}}, {{0}}Event.Type type)
+    {
+        _{{0}}Event.{{0}} = {{0}};
+        _{{0}}Event.type = type;
+
+        EventBus.Publish(_{{0}}Event);
+    }
+}

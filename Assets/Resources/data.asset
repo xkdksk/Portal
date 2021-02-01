@@ -1,0 +1,594 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd4c0d7fb47ce64ea8e4f8b194f9ffa, type: 3}
+  m_Name: data
+  m_EditorClassIdentifier: 
+  PlayerLevel:
+  - code: 1
+    level: 1
+    exp: 100
+    goldReward: 1000
+    gemReward: 100
+  - code: 2
+    level: 2
+    exp: 200
+    goldReward: 2000
+    gemReward: 100
+  - code: 3
+    level: 3
+    exp: 400
+    goldReward: 3000
+    gemReward: 100
+  - code: 4
+    level: 4
+    exp: 600
+    goldReward: 4000
+    gemReward: 100
+  - code: 5
+    level: 5
+    exp: 800
+    goldReward: 5000
+    gemReward: 100
+  - code: 6
+    level: 6
+    exp: 1000
+    goldReward: 6000
+    gemReward: 100
+  - code: 7
+    level: 7
+    exp: 1500
+    goldReward: 7000
+    gemReward: 100
+  - code: 8
+    level: 8
+    exp: 2000
+    goldReward: 8000
+    gemReward: 100
+  - code: 9
+    level: 9
+    exp: 2500
+    goldReward: 9000
+    gemReward: 100
+  - code: 10
+    level: 10
+    exp: 3000
+    goldReward: 10000
+    gemReward: 100
+  - code: 11
+    level: 11
+    exp: 3500
+    goldReward: 11000
+    gemReward: 100
+  - code: 12
+    level: 12
+    exp: 4000
+    goldReward: 12000
+    gemReward: 100
+  - code: 13
+    level: 13
+    exp: 4500
+    goldReward: 13000
+    gemReward: 100
+  - code: 14
+    level: 14
+    exp: 5000
+    goldReward: 14000
+    gemReward: 100
+  - code: 15
+    level: 15
+    exp: 6000
+    goldReward: 15000
+    gemReward: 100
+  - code: 16
+    level: 16
+    exp: 7000
+    goldReward: 16000
+    gemReward: 100
+  - code: 17
+    level: 17
+    exp: 8000
+    goldReward: 17000
+    gemReward: 100
+  - code: 18
+    level: 18
+    exp: 9000
+    goldReward: 18000
+    gemReward: 100
+  - code: 19
+    level: 19
+    exp: 10000
+    goldReward: 19000
+    gemReward: 100
+  - code: 20
+    level: 20
+    exp: 11000
+    goldReward: 20000
+    gemReward: 100
+  - code: 21
+    level: 21
+    exp: 12000
+    goldReward: 21000
+    gemReward: 100
+  - code: 22
+    level: 22
+    exp: 13000
+    goldReward: 22000
+    gemReward: 100
+  - code: 23
+    level: 23
+    exp: 14000
+    goldReward: 23000
+    gemReward: 100
+  - code: 24
+    level: 24
+    exp: 15000
+    goldReward: 24000
+    gemReward: 100
+  - code: 25
+    level: 25
+    exp: 16000
+    goldReward: 25000
+    gemReward: 100
+  CharacterInfo:
+  - code: 101
+    name: Swordman
+    desc: Story of the Swordman
+    avatarPrefab: "AvatarSwordman (\uC900\uBE44\uB418\uC5B4 \uC788\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.)"
+    prop: 101
+    firstSkillCode: 10101
+    secondSkillCode: 10102
+  - code: 102
+    name: Witch
+    desc: Story of the Witch
+    avatarPrefab: "AvatarWitch (\uC900\uBE44\uB418\uC5B4 \uC788\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.)"
+    prop: 102
+    firstSkillCode: 10201
+    secondSkillCode: 10202
+  CharacterLevel:
+  - code: 1
+    expCost: 10
+    goldCost: 500
+  - code: 2
+    expCost: 15
+    goldCost: 1000
+  - code: 3
+    expCost: 20
+    goldCost: 1500
+  - code: 4
+    expCost: 25
+    goldCost: 2000
+  - code: 5
+    expCost: 30
+    goldCost: 2500
+  - code: 6
+    expCost: 35
+    goldCost: 5000
+  - code: 7
+    expCost: 40
+    goldCost: 6000
+  - code: 8
+    expCost: 45
+    goldCost: 7000
+  - code: 9
+    expCost: 50
+    goldCost: 8000
+  - code: 10
+    expCost: 55
+    goldCost: 10000
+  - code: 11
+    expCost: 60
+    goldCost: 12000
+  - code: 12
+    expCost: 65
+    goldCost: 14000
+  - code: 13
+    expCost: 70
+    goldCost: 16000
+  - code: 14
+    expCost: 75
+    goldCost: 18000
+  - code: 15
+    expCost: 80
+    goldCost: 21000
+  - code: 16
+    expCost: 85
+    goldCost: 24000
+  - code: 17
+    expCost: 90
+    goldCost: 27000
+  - code: 18
+    expCost: 95
+    goldCost: 30000
+  - code: 19
+    expCost: 100
+    goldCost: 33000
+  - code: 20
+    expCost: 110
+    goldCost: 40000
+  - code: 21
+    expCost: 120
+    goldCost: 47000
+  - code: 22
+    expCost: 130
+    goldCost: 54000
+  - code: 23
+    expCost: 140
+    goldCost: 61000
+  - code: 24
+    expCost: 150
+    goldCost: 70000
+  CharacterSkill:
+  - code: 10101
+    prop: 10101
+    name: Vanguard
+    desc: <color=#10FF6A>+{VanguardChance}%</color> extra damage of Last Attack
+  - code: 10102
+    prop: 10102
+    name: Finisher
+    desc: <color=#10FF6A>+{FinisherChance}%</color> Stun Chance by Last Attack
+  - code: 10201
+    prop: 10201
+    name: Terrible Mistake
+    desc: <color=#10FF6A>+{TerribleMistakeChance}%</color> chance to fire an extra
+      Fireball
+  - code: 10202
+    prop: 10202
+    name: Horrible Mistake
+    desc: <color=#10FF6A>+{HorribleMistakeChance}%</color> chance to fire a huge
+      Fireball
+  CharacterSkillLevel:
+  - code: 1
+    level: 1
+    goldCost: 500
+  - code: 2
+    level: 2
+    goldCost: 1000
+  - code: 3
+    level: 3
+    goldCost: 1500
+  - code: 4
+    level: 4
+    goldCost: 2000
+  - code: 5
+    level: 5
+    goldCost: 2500
+  - code: 6
+    level: 6
+    goldCost: 5000
+  - code: 7
+    level: 7
+    goldCost: 6000
+  - code: 8
+    level: 8
+    goldCost: 7000
+  - code: 9
+    level: 9
+    goldCost: 8000
+  - code: 10
+    level: 10
+    goldCost: 10000
+  - code: 11
+    level: 11
+    goldCost: 12000
+  - code: 12
+    level: 12
+    goldCost: 14000
+  - code: 13
+    level: 13
+    goldCost: 16000
+  - code: 14
+    level: 14
+    goldCost: 18000
+  - code: 15
+    level: 15
+    goldCost: 21000
+  - code: 16
+    level: 16
+    goldCost: 24000
+  - code: 17
+    level: 17
+    goldCost: 27000
+  - code: 18
+    level: 18
+    goldCost: 30000
+  - code: 19
+    level: 19
+    goldCost: 33000
+  - code: 20
+    level: 20
+    goldCost: 40000
+  - code: 21
+    level: 21
+    goldCost: 47000
+  - code: 22
+    level: 22
+    goldCost: 54000
+  - code: 23
+    level: 23
+    goldCost: 61000
+  - code: 24
+    level: 24
+    goldCost: 70000
+  Weapon:
+  - code: 20101
+    iconPrefab: 
+    name: Iron Sword
+    infoDesc: Description of Iron Sword
+    effectDesc: <color=#FFCB34>+{CriticalChance}%</color> Critical Chance
+    grade: 1
+    type: 0
+    prop: 20101
+  - code: 20102
+    iconPrefab: 
+    name: Silver Sword
+    infoDesc: Description of Silver Sword
+    effectDesc: <color=#FFCB34>+{CriticalChance}%</color> Critical Chance
+    grade: 2
+    type: 0
+    prop: 20102
+  - code: 20103
+    iconPrefab: 
+    name: Gold Sword
+    infoDesc: Description of Gold Sword
+    effectDesc: <color=#FFCB34>+{CriticalChance}%</color> Critical Chance
+    grade: 3
+    type: 0
+    prop: 20103
+  - code: 20104
+    iconPrefab: 
+    name: Diamond Sword
+    infoDesc: Description of Diamond Sword
+    effectDesc: <color=#FFCB34>+{CriticalChance}%</color> Critical Chance
+    grade: 4
+    type: 0
+    prop: 20104
+  - code: 20105
+    iconPrefab: 
+    name: Iron Dagger
+    infoDesc: Description of Iron Dagger
+    effectDesc: <color=#FFCB34>+{AttackSpeed}%</color> Attack Speed
+    grade: 1
+    type: 1
+    prop: 20105
+  - code: 20106
+    iconPrefab: 
+    name: Silver Dagger
+    infoDesc: Description of Silver Dagger
+    effectDesc: <color=#FFCB34>+{AttackSpeed}%</color> Attack Speed
+    grade: 2
+    type: 1
+    prop: 20106
+  - code: 20107
+    iconPrefab: 
+    name: Gold Dagger
+    infoDesc: Description of Gold Dagger
+    effectDesc: <color=#FFCB34>+{AttackSpeed}%</color> Attack Speed
+    grade: 3
+    type: 1
+    prop: 20107
+  - code: 20108
+    iconPrefab: 
+    name: Diamond Dagger
+    infoDesc: Description of Diamond Dagger
+    effectDesc: <color=#FFCB34>+{AttackSpeed}%</color> Attack Speed
+    grade: 4
+    type: 1
+    prop: 20108
+  - code: 20201
+    iconPrefab: 
+    name: Iron Staff
+    infoDesc: Description of Iron Staff
+    effectDesc: <color=#FFCB34>+{CriticalChance}%</color> Critical Chance
+    grade: 1
+    type: 0
+    prop: 20201
+  - code: 20202
+    iconPrefab: 
+    name: Silver Staff
+    infoDesc: Description of Silver Staff
+    effectDesc: <color=#FFCB34>+{CriticalChance}%</color> Critical Chance
+    grade: 2
+    type: 0
+    prop: 20202
+  - code: 20203
+    iconPrefab: 
+    name: Gold Staff
+    infoDesc: Description of Gold Staff
+    effectDesc: <color=#FFCB34>+{CriticalChance}%</color> Critical Chance
+    grade: 3
+    type: 0
+    prop: 20203
+  - code: 20204
+    iconPrefab: 
+    name: Diamond Staff
+    infoDesc: Description of Diamond Staff
+    effectDesc: <color=#FFCB34>+{CriticalChance}%</color> Critical Chance
+    grade: 4
+    type: 0
+    prop: 20204
+  - code: 20205
+    iconPrefab: 
+    name: Iron Wand
+    infoDesc: Description of Iron Wand
+    effectDesc: <color=#FFCB34>+{AttackSpeed}%</color> Attack Speed
+    grade: 1
+    type: 1
+    prop: 20205
+  - code: 20206
+    iconPrefab: 
+    name: Silver Wand
+    infoDesc: Description of Silver Wand
+    effectDesc: <color=#FFCB34>+{AttackSpeed}%</color> Attack Speed
+    grade: 2
+    type: 1
+    prop: 20206
+  - code: 20207
+    iconPrefab: 
+    name: Gold Wand
+    infoDesc: Description of Gold Wand
+    effectDesc: <color=#FFCB34>+{AttackSpeed}%</color> Attack Speed
+    grade: 3
+    type: 1
+    prop: 20207
+  - code: 20208
+    iconPrefab: 
+    name: Diamond Wand
+    infoDesc: Description of Diamond Wand
+    effectDesc: <color=#FFCB34>+{AttackSpeed}%</color> Attack Speed
+    grade: 4
+    type: 1
+    prop: 20208
+  weaponUpgrade:
+  - code: 1
+    grade: 1
+    level: 1
+    startProb: 100
+    weightProb: 0
+    goldCost: 500
+  - code: 2
+    grade: 1
+    level: 2
+    startProb: 50
+    weightProb: 25
+    goldCost: 750
+  - code: 3
+    grade: 1
+    level: 3
+    startProb: 50
+    weightProb: 25
+    goldCost: 1000
+  - code: 4
+    grade: 1
+    level: 4
+    startProb: 50
+    weightProb: 25
+    goldCost: 1250
+  - code: 5
+    grade: 1
+    level: 5
+    startProb: 25
+    weightProb: 25
+    goldCost: 1500
+  - code: 6
+    grade: 1
+    level: 6
+    startProb: 25
+    weightProb: 25
+    goldCost: 2000
+  - code: 7
+    grade: 1
+    level: 7
+    startProb: 25
+    weightProb: 25
+    goldCost: 2500
+  - code: 8
+    grade: 1
+    level: 8
+    startProb: 25
+    weightProb: 25
+    goldCost: 3000
+  - code: 9
+    grade: 1
+    level: 9
+    startProb: 25
+    weightProb: 25
+    goldCost: 3500
+  - code: 10
+    grade: 1
+    level: 10
+    startProb: 10
+    weightProb: 10
+    goldCost: 4000
+  - code: 11
+    grade: 1
+    level: 11
+    startProb: 10
+    weightProb: 10
+    goldCost: 5000
+  - code: 12
+    grade: 1
+    level: 12
+    startProb: 10
+    weightProb: 10
+    goldCost: 6000
+  - code: 13
+    grade: 1
+    level: 13
+    startProb: 10
+    weightProb: 10
+    goldCost: 7000
+  - code: 14
+    grade: 1
+    level: 14
+    startProb: 10
+    weightProb: 10
+    goldCost: 8000
+  - code: 15
+    grade: 1
+    level: 15
+    startProb: 5
+    weightProb: 5
+    goldCost: 9000
+  - code: 16
+    grade: 1
+    level: 16
+    startProb: 5
+    weightProb: 5
+    goldCost: 11000
+  - code: 17
+    grade: 1
+    level: 17
+    startProb: 5
+    weightProb: 5
+    goldCost: 13000
+  - code: 18
+    grade: 1
+    level: 18
+    startProb: 5
+    weightProb: 5
+    goldCost: 15000
+  - code: 19
+    grade: 1
+    level: 19
+    startProb: 5
+    weightProb: 5
+    goldCost: 17000
+  - code: 20
+    grade: 1
+    level: 20
+    startProb: 2
+    weightProb: 2
+    goldCost: 19000
+  - code: 21
+    grade: 1
+    level: 21
+    startProb: 2
+    weightProb: 2
+    goldCost: 22000
+  - code: 22
+    grade: 1
+    level: 22
+    startProb: 2
+    weightProb: 2
+    goldCost: 25000
+  - code: 23
+    grade: 1
+    level: 23
+    startProb: 2
+    weightProb: 2
+    goldCost: 28000
+  - code: 24
+    grade: 1
+    level: 24
+    startProb: 2
+    weightProb: 2
+    goldCost: 31000

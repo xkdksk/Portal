@@ -1,0 +1,18 @@
+{
+    "name": "Uj.Editor",
+    "references": [
+        "GUID:439bee52b57f8ea429e9b171fe37fb14",
+        "GUID:f08389deb9c052d4b85793ad409f428f"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
