@@ -43,6 +43,7 @@ public class UserData
 
     internal void Init()
     {
+        level = (int)playData.properties.Get("StartPlayerLevel");
         gold = (int)playData.properties.Get("StartGold");
         gem = (int)playData.properties.Get("StartGem");
 
@@ -52,10 +53,11 @@ public class UserData
             characters.Add(new CharacterInstanceInfo()
             {
                 code = c.code,
-                level = (int)playData.properties.Get("StartCharacterLevel")
+                level = 1
             });
         }
-         
+
+        selectedCharacterCode = characters[0].code;
 
 
     }

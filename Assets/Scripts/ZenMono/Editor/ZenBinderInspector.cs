@@ -150,7 +150,7 @@ public class ZenBinderInspector : Editor
         {
             if (GUILayout.Button("AutoFind"))
             {
-                go = AutoZenContextFind(host.transform.parent);
+                go = AutoZenContextFind(host.transform);
             }
         }
 
@@ -230,8 +230,11 @@ public class ZenBinderInspector : Editor
                 return;
             }
 
+
+
             host.targetMono = EditorGUILayout.ObjectField("TargetMono", host.targetMono, typeof(MonoBehaviour), true) as MonoBehaviour;
 
+      
             if (host.targetMono == null)
             {
                 if (GUILayout.Button("AutoFind"))
@@ -258,6 +261,18 @@ public class ZenBinderInspector : Editor
             Type targetValType=null;
             if (fType == null)
             {
+                if(type == typeof(bool)){
+                    host.usingToSetActive = EditorGUILayout.Toggle("SetActive", host.usingToSetActive);
+                    
+                    if (host.usingToSetActive)
+                    {
+                        host.usingNotBool = EditorGUILayout.Toggle("usingNot", host.usingNotBool);
+
+                        return;
+                    }
+
+                }
+
                 var pType = host.targetMono.GetType().GetProperty(host.targetBindgPath);
                 if (pType != null)
                 {

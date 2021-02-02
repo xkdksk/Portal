@@ -20,6 +20,7 @@ public class UI_CharacterContext : ZenMonoContext<UI_CharacterContext>
     public float lvRate;
     public string lvStateStr;
 
+
     public bool hasCharacter;
 
     public void SetCode(int code)
@@ -40,10 +41,8 @@ public class UI_CharacterContext : ZenMonoContext<UI_CharacterContext>
         {
             return;
         }
-
         instanceInfo = userData.characters.FirstOrDefault(l => l.code == code);
        
-
      
 
         if (instanceInfo != null)
@@ -58,7 +57,6 @@ public class UI_CharacterContext : ZenMonoContext<UI_CharacterContext>
             else
             {
                 lvStateStr = instanceInfo.exp + "/" + lvInfo.expCost;
-
                 lvRate = instanceInfo.exp / (float)lvInfo.expCost;
             }
         }
@@ -66,6 +64,8 @@ public class UI_CharacterContext : ZenMonoContext<UI_CharacterContext>
         {
             hasCharacter = false;
         }
+
+
 
         UpdateVals();
     }

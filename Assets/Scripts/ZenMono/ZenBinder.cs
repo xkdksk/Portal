@@ -18,8 +18,10 @@ public class ZenBinder : MonoBehaviour
     [HideInInspector]
     public string format;
 
-
-
+    [HideInInspector]
+    public bool usingToSetActive;
+    [HideInInspector]
+    public bool usingNotBool;
 
     public void UpdateVal()
     {
@@ -28,6 +30,21 @@ public class ZenBinder : MonoBehaviour
         if (bindingVal == null)
         {
             return;
+        }
+
+        if (bindingVal.GetType()== typeof(bool))
+        {
+            if (usingToSetActive)
+            {
+                var b = (bool)bindingVal;
+                if (usingNotBool)
+                {
+                    b = !b;
+                }
+                targetMono.gameObject.SetActive(b);
+                return;
+            }
+
         }
 
         var fType = targetMono.GetType().GetField(targetBindgPath);
@@ -51,10 +68,9 @@ public class ZenBinder : MonoBehaviour
                 {
                     bindingVal = bindingVal.ToString();
                 }
-
-
             }
 
+          
 
 
             pType.SetValue(targetMono, bindingVal);
