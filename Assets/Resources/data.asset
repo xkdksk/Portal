@@ -624,18 +624,19 @@ MonoBehaviour:
     baseProp: 0000000000000000
     value:
     - SystemTestVariable = 1
+    - StartPlayerLevel = 1
+    - StartSkillLevel = 1
+    - StartWeaponLevel = 1
   - isParam: 0
     code: 10
     baseProp: 0100000000000000
     value:
-    - StartPlayerLevel = 1
     - StartGold = 1000
     - StartGem = 0
   - isParam: 0
     code: 100
     baseProp: 0a00000000000000
-    value:
-    - StartCharacterLevel = 1
+    value: []
   - isParam: 0
     code: 101
     baseProp: 6400000000000000
@@ -665,8 +666,7 @@ MonoBehaviour:
   - isParam: 0
     code: 10000
     baseProp: 0000000000000000
-    value:
-    - StartSkillLevel = 1
+    value: []
   - isParam: 0
     code: 10101
     baseProp: 1027000065000000
@@ -690,8 +690,7 @@ MonoBehaviour:
   - isParam: 0
     code: 20000
     baseProp: 0000000000000000
-    value:
-    - StartWeaponLevel = 1
+    value: []
   - isParam: 0
     code: 20101
     baseProp: 204e000000000000
