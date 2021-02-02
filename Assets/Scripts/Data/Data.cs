@@ -70,7 +70,7 @@ public class WeaponUpgrade
 }
 
 
-
+[Serializable]
 public class Prop : HasFormula
 {
     public int code;
