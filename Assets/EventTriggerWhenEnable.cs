@@ -1,16 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EventTriggerWhenEnable : MonoBehaviour
 {
-    public Animator anim;
-
-    public string triggerName;
+    public UnityEvent onEnableEvent;
 
     private void OnEnable()
     {
-
-        anim.SetTrigger(triggerName);
+        onEnableEvent.Invoke();
     }
 }
