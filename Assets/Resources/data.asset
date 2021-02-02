@@ -154,78 +154,102 @@ MonoBehaviour:
     prop: 102
     firstSkillCode: 10201
     secondSkillCode: 10202
-    price: 0
+    price: 500
   CharacterLevel:
   - code: 1
+    level: 1
     expCost: 10
     goldCost: 500
   - code: 2
+    level: 2
     expCost: 15
     goldCost: 1000
   - code: 3
+    level: 3
     expCost: 20
     goldCost: 1500
   - code: 4
+    level: 4
     expCost: 25
     goldCost: 2000
   - code: 5
+    level: 5
     expCost: 30
     goldCost: 2500
   - code: 6
+    level: 6
     expCost: 35
     goldCost: 5000
   - code: 7
+    level: 7
     expCost: 40
     goldCost: 6000
   - code: 8
+    level: 8
     expCost: 45
     goldCost: 7000
   - code: 9
+    level: 9
     expCost: 50
     goldCost: 8000
   - code: 10
+    level: 10
     expCost: 55
     goldCost: 10000
   - code: 11
+    level: 11
     expCost: 60
     goldCost: 12000
   - code: 12
+    level: 12
     expCost: 65
     goldCost: 14000
   - code: 13
+    level: 13
     expCost: 70
     goldCost: 16000
   - code: 14
+    level: 14
     expCost: 75
     goldCost: 18000
   - code: 15
+    level: 15
     expCost: 80
     goldCost: 21000
   - code: 16
+    level: 16
     expCost: 85
     goldCost: 24000
   - code: 17
+    level: 17
     expCost: 90
     goldCost: 27000
   - code: 18
+    level: 18
     expCost: 95
     goldCost: 30000
   - code: 19
+    level: 19
     expCost: 100
     goldCost: 33000
   - code: 20
+    level: 20
     expCost: 110
     goldCost: 40000
   - code: 21
+    level: 21
     expCost: 120
     goldCost: 47000
   - code: 22
+    level: 22
     expCost: 130
     goldCost: 54000
   - code: 23
+    level: 23
     expCost: 140
     goldCost: 61000
   - code: 24
+    level: 24
     expCost: 150
     goldCost: 70000
   CharacterSkill:
@@ -594,3 +618,237 @@ MonoBehaviour:
     startProb: 2
     weightProb: 2
     goldCost: 31000
+  prop:
+  - isParam: 0
+    code: 1
+    baseProp: 0000000000000000
+    value:
+    - SystemTestVariable = 1
+  - isParam: 0
+    code: 10
+    baseProp: 0100000000000000
+    value:
+    - StartPlayerLevel = 1
+    - StartGold = 1000
+    - StartGem = 0
+  - isParam: 0
+    code: 100
+    baseProp: 0a00000000000000
+    value:
+    - StartCharacterLevel = 1
+  - isParam: 0
+    code: 101
+    baseProp: 6400000000000000
+    value:
+    - AttackPower = (10 + 1 * CharacterLevel) * AttackPowerRate
+    - AttackPowerRate = 1
+    - Heart = 5
+    - AttackSpeedRate = 1
+    - MoveSpeedRate = 1
+    - JumpHeight = 1
+    - CriticalChance = 0.1
+    - CriticalDamageRate = 2
+    - EvasionChance = 0.1
+  - isParam: 0
+    code: 102
+    baseProp: 6400000000000000
+    value:
+    - AttackPower = (10 + 1 * CharacterLevel) * AttackPowerRate
+    - AttackPowerRate = 1
+    - Heart = 5
+    - AttackSpeedRate = 1
+    - MoveSpeedRate = 1
+    - JumpHeight = 1
+    - CriticalChance = 0.1
+    - CriticalDamageRate = 2
+    - EvasionChance = 0.1
+  - isParam: 0
+    code: 10000
+    baseProp: 0000000000000000
+    value:
+    - StartSkillLevel = 1
+  - isParam: 0
+    code: 10101
+    baseProp: 1027000065000000
+    value:
+    - VanguardChance = 0.05 + 0.01 * (SkillLevel - 1)
+  - isParam: 0
+    code: 10102
+    baseProp: 1027000065000000
+    value:
+    - FinisherDamage = 1 + 0.05 * (SkillLevel - 1)
+  - isParam: 0
+    code: 10201
+    baseProp: 1027000066000000
+    value:
+    - TerribleMistakeChance = 0.1 + 0.01 * (SkillLevel - 1)
+  - isParam: 0
+    code: 10202
+    baseProp: 1027000066000000
+    value:
+    - HorribleMistakeChance = 0.05 + 0.01 * (SkillLevel - 1)
+  - isParam: 0
+    code: 20000
+    baseProp: 0000000000000000
+    value:
+    - StartWeaponLevel = 1
+  - isParam: 0
+    code: 20101
+    baseProp: 204e000000000000
+    value:
+    - AttackPower = 20 + 2 * WeaponLevel
+    - CriticalChance = 0.05
+  - isParam: 0
+    code: 20102
+    baseProp: 204e000000000000
+    value:
+    - AttackPower = 40 + 4 * WeaponLevel
+    - CriticalChance = 0.1
+  - isParam: 0
+    code: 20103
+    baseProp: 204e000000000000
+    value:
+    - AttackPower = 70 + 7 * WeaponLevel
+    - CriticalChance = 0.15
+  - isParam: 0
+    code: 20104
+    baseProp: 204e000000000000
+    value:
+    - AttackPower = 100 + 10 * WeaponLevel
+    - CriticalChance = 0.2
+  - isParam: 0
+    code: 20105
+    baseProp: 204e000000000000
+    value:
+    - AttackPower = 10 + 1 * WeaponLevel
+    - AttackSpeedRate = 0.1
+  - isParam: 0
+    code: 20106
+    baseProp: 204e000000000000
+    value:
+    - AttackPower = 20 + 2 * WeaponLevel
+    - AttackSpeedRate = 0.2
+  - isParam: 0
+    code: 20107
+    baseProp: 204e000000000000
+    value:
+    - AttackPower = 30 + 3 * WeaponLevel
+    - AttackSpeedRate = 0.3
+  - isParam: 0
+    code: 20108
+    baseProp: 204e000000000000
+    value:
+    - AttackPower = 40 + 4 * WeaponLevel
+    - AttackSpeedRate = 0.4
+  - isParam: 0
+    code: 20201
+    baseProp: 204e000000000000
+    value:
+    - AttackPower = 20 + 2 * WeaponLevel
+    - CriticalChance = 0.05
+  - isParam: 0
+    code: 20202
+    baseProp: 204e000000000000
+    value:
+    - AttackPower = 40 + 4 * WeaponLevel
+    - CriticalChance = 0.1
+  - isParam: 0
+    code: 20203
+    baseProp: 204e000000000000
+    value:
+    - AttackPower = 70 + 7 * WeaponLevel
+    - CriticalChance = 0.15
+  - isParam: 0
+    code: 20204
+    baseProp: 204e000000000000
+    value:
+    - AttackPower = 100 + 10 * WeaponLevel
+    - CriticalChance = 0.2
+  - isParam: 0
+    code: 20205
+    baseProp: 204e000000000000
+    value:
+    - AttackPower = 10 + 1 * WeaponLevel
+    - AttackSpeedRate = 0.1
+  - isParam: 0
+    code: 20206
+    baseProp: 204e000000000000
+    value:
+    - AttackPower = 20 + 2 * WeaponLevel
+    - AttackSpeedRate = 0.2
+  - isParam: 0
+    code: 20207
+    baseProp: 204e000000000000
+    value:
+    - AttackPower = 30 + 3 * WeaponLevel
+    - AttackSpeedRate = 0.3
+  - isParam: 0
+    code: 20208
+    baseProp: 204e000000000000
+    value:
+    - AttackPower = 40 + 4 * WeaponLevel
+    - AttackSpeedRate = 0.4
+  - isParam: 0
+    code: 30000
+    baseProp: 0000000000000000
+    value: []
+  - isParam: 0
+    code: 30101
+    baseProp: 3075000000000000
+    value:
+    - AttackPower = 1
+  - isParam: 0
+    code: 30102
+    baseProp: 3075000000000000
+    value:
+    - AttackPower = 1
+  - isParam: 0
+    code: 30103
+    baseProp: 3075000000000000
+    value:
+    - AttackPower = 1
+  - isParam: 0
+    code: 30104
+    baseProp: 3075000000000000
+    value:
+    - AttackPower = 1
+  - isParam: 0
+    code: 30105
+    baseProp: 3075000000000000
+    value:
+    - AttackPower = 1
+  - isParam: 0
+    code: 30106
+    baseProp: 3075000000000000
+    value:
+    - AttackPower = 1
+  - isParam: 0
+    code: 30107
+    baseProp: 3075000000000000
+    value:
+    - AttackPower = 1
+  - isParam: 0
+    code: 30108
+    baseProp: 3075000000000000
+    value:
+    - AttackPower = 1
+  - isParam: 0
+    code: 30109
+    baseProp: 3075000000000000
+    value:
+    - AttackPower = 1
+  - isParam: 0
+    code: 30110
+    baseProp: 3075000000000000
+    value:
+    - AttackPower = 1
+  - isParam: 0
+    code: 30111
+    baseProp: 3075000000000000
+    value:
+    - AttackPower = 1
+  - isParam: 0
+    code: 30112
+    baseProp: 3075000000000000
+    value:
+    - AttackPower = 1

@@ -36,9 +36,9 @@ public class UserData
     public int selectedCharacterCode;
 
 
-    public List<CharacterItem> CharacterItem;
-    public List<CharacterInstanceInfo> characters;
-    public HashSet<int> skinCodes;
+    public List<CharacterItem> CharacterItem= new List<CharacterItem>();
+    public List<CharacterInstanceInfo> characters =new List<CharacterInstanceInfo> ();
+    public HashSet<int> skinCodes= new HashSet<int>();
 
 
     internal void Init()

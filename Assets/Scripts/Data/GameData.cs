@@ -42,7 +42,6 @@ public class GameData :ScriptableObject
 
     private void Init()
     {
-        prop.Clear();
 
 
         foreach (var p in prop)
