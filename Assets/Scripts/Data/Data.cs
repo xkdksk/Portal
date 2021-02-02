@@ -27,7 +27,7 @@ public partial class CharacterInfo
 [Serializable]
 public class CharacterLevel
 {
-    public int code, expCost, goldCost;
+    public int code, level,expCost, goldCost;
 }
 
 [Serializable]

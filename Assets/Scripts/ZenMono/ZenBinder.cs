@@ -15,6 +15,8 @@ public class ZenBinder : MonoBehaviour
     [HideInInspector]
     public MonoBehaviour targetMono;
 
+    [HideInInspector]
+    public string format;
 
 
 
@@ -23,9 +25,13 @@ public class ZenBinder : MonoBehaviour
     {
         object bindingVal;
         TryGetValue(zenContext, bindingPath, out bindingVal);
-
+        if (bindingVal == null)
+        {
+            return;
+        }
 
         var fType = targetMono.GetType().GetField(targetBindgPath);
+
         if (fType == null)
         {
             var pType = targetMono.GetType().GetProperty(targetBindgPath);
@@ -34,10 +40,40 @@ public class ZenBinder : MonoBehaviour
             {
                 return;
             }
+
+            if(pType.PropertyType == typeof(string) && bindingVal.GetType()!= typeof(string))
+            {
+                if (string.IsNullOrWhiteSpace(format) == false)
+                {
+                    bindingVal = string.Format(format, bindingVal);
+                }
+                else
+                {
+                    bindingVal = bindingVal.ToString();
+                }
+
+
+            }
+
+
+
             pType.SetValue(targetMono, bindingVal);
         }
         else
         {
+            if (fType.FieldType == typeof(string) && bindingVal.GetType() != typeof(string))
+            {
+                if (string.IsNullOrWhiteSpace(format) == false)
+                {
+                    bindingVal = string.Format(format, bindingVal);
+                }
+                else
+                {
+                    bindingVal = bindingVal.ToString();
+                }
+
+            }
+
             fType.SetValue(targetMono, bindingVal);
         }
     }

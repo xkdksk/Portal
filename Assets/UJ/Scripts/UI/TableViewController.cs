@@ -165,6 +165,8 @@ public class TableViewController<T> : ViewController {
         if (cell == null)
         {
             GameObject obj = GameObject.Instantiate<GameObject>(CellBase, cellParent);
+            AfterInstantiate(obj);
+
             obj.SetActive(true);
             
 
@@ -177,7 +179,9 @@ public class TableViewController<T> : ViewController {
         return cell;
     }
 
-
+    protected virtual void AfterInstantiate(GameObject obj)
+    {
+    }
 
     private void FillVisibleRectWithCells()
     {

@@ -244,12 +244,55 @@ public class ZenBinderInspector : Editor
 
             var candidates=GetSetableFields(host.targetMono.GetType(), candiType =>
             {
-                return candiType == type;
+                return candiType == type || candiType== typeof(string);
             });
+
+            if (host.targetBindgPath == null)
+            {
+                host.targetBindgPath="";
+            }
+
+
+            var fType = host.targetMono.GetType().GetField(host.targetBindgPath);
+
+            Type targetValType=null;
+            if (fType == null)
+            {
+                var pType = host.targetMono.GetType().GetProperty(host.targetBindgPath);
+                if (pType != null)
+                {
+                    targetValType = pType.PropertyType;
+                }
+            }
+            else
+            {
+                targetValType = fType.FieldType;
+            }
 
 
 
             host.targetBindgPath = EditorGUILayout.TextField("TargetBindingPath", host.targetBindgPath);
+
+            if (targetValType != null && targetValType == typeof(string))
+            {
+
+                bool usingFormat=EditorGUILayout.Toggle("usingFormat",host.format != null);
+
+                if(usingFormat && string.IsNullOrEmpty( host.format))
+                {
+                    host.format = "{0}";
+                }
+
+                if (usingFormat == false)
+                {
+                    host.format = null;
+                }
+                else
+                {
+                    host.format = EditorGUILayout.TextField("Format", host.format);
+                }
+            }
+
 
             if (candidates.Any(l => l == host.targetBindgPath) == false)
             {
@@ -279,6 +322,11 @@ public class ZenBinderInspector : Editor
         {
             host.targetMono = host.GetComponent<UnityEngine.UI.Text>();
             host.targetBindgPath = "text";
+            if (host.targetMono == null)
+            {
+                host.targetMono = host.GetComponent<TMPro.TextMeshProUGUI>();
+                host.targetBindgPath = "text";
+            }
 
         }
         if (type == typeof(Sprite))
