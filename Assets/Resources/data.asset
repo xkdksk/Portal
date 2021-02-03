@@ -628,14 +628,14 @@ MonoBehaviour:
     - StartSkillLevel = 1
     - StartWeaponLevel = 1
   - isParam: 0
-    code: 10
-    baseProp: 0100000000000000
+    code: 1
+    baseProp: 0000000000000000
     value:
     - StartGold = 1000
     - StartGem = 0
   - isParam: 0
     code: 100
-    baseProp: 0a00000000000000
+    baseProp: 0000000000000000
     value: []
   - isParam: 0
     code: 101
