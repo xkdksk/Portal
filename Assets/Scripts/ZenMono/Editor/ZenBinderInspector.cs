@@ -138,7 +138,7 @@ public class ZenBinderInspector : Editor
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
-        EditorUtility.SetDirty(target);
+ 
 
         GameObject go=null;
 
@@ -163,8 +163,11 @@ public class ZenBinderInspector : Editor
             return;
         }
 
-        host.zenContext = FindZenContext(go);
-
+        var context= FindZenContext(go);
+        if (host.zenContext != context) {
+            host.zenContext = context;
+            EditorUtility.SetDirty(target);
+        }
         GUIStyle style = new GUIStyle(EditorStyles.textField);
 
 
@@ -178,8 +181,11 @@ public class ZenBinderInspector : Editor
         {
 
             style.normal.textColor = new Color(0, 0.5f, 0); ;
-            host.zenContext.GetType().GetMethod("AddBinder").Invoke(host.zenContext, new object[] { host });
-            host.zenContext.GetType().GetMethod("ValidateBinders").Invoke(host.zenContext,null);
+            var zc= host.zenContext as IZenMonoContext;
+            if (zc!=null&& zc.AddBinder(host))
+            {
+                EditorUtility.SetDirty(target);
+            }
 
             EditorGUILayout.LabelField("Type " + host.zenContext.GetType().Name, style);
         }
@@ -200,9 +206,15 @@ public class ZenBinderInspector : Editor
 
 
 
-        host.bindingPath = EditorGUILayout.TextField("BindingPath",host.bindingPath);
+       var bPath = EditorGUILayout.TextField("BindingPath",host.bindingPath);
 
-        if(PathOptions.Any(l=>l== host.bindingPath)==false)
+        if (bPath != host.bindingPath)
+        {
+            host.bindingPath = bPath;
+            EditorUtility.SetDirty(target);
+        }
+
+        if (PathOptions.Any(l=>l== host.bindingPath)==false)
         {
             style.normal.textColor = Color.red;
             EditorGUILayout.LabelField("NotValid Path", style);
@@ -217,6 +229,8 @@ public class ZenBinderInspector : Editor
                 if(GUILayout.Button(v, style))
                 {
                     host.bindingPath = v;
+
+                    EditorUtility.SetDirty(target);
                 }
             }
         }
@@ -232,14 +246,20 @@ public class ZenBinderInspector : Editor
 
 
 
-            host.targetMono = EditorGUILayout.ObjectField("TargetMono", host.targetMono, typeof(MonoBehaviour), true) as MonoBehaviour;
+           var mono = EditorGUILayout.ObjectField("TargetMono", host.targetMono, typeof(MonoBehaviour), true) as MonoBehaviour;
 
+            if (host.targetMono != mono)
+            {
+                host.targetMono = mono;
+                EditorUtility.SetDirty(target);
+            }
       
             if (host.targetMono == null)
             {
                 if (GUILayout.Button("AutoFind"))
                 {
                     AutoFindTargetMono(host, type);
+                    EditorUtility.SetDirty(target);
                 }
 
                 return;
@@ -253,6 +273,7 @@ public class ZenBinderInspector : Editor
             if (host.targetBindgPath == null)
             {
                 host.targetBindgPath="";
+                EditorUtility.SetDirty(target);
             }
 
 
@@ -262,12 +283,23 @@ public class ZenBinderInspector : Editor
             if (fType == null)
             {
                 if(type == typeof(bool)){
-                    host.usingToSetActive = EditorGUILayout.Toggle("SetActive", host.usingToSetActive);
-                    
+                   var b= EditorGUILayout.Toggle("SetActive", host.usingToSetActive);
+
+                    if (b != host.usingToSetActive)
+                    {
+                        host.usingToSetActive = b;
+                        EditorUtility.SetDirty(target);
+                    }
+
+
                     if (host.usingToSetActive)
                     {
                         host.usingNotBool = EditorGUILayout.Toggle("usingNot", host.usingNotBool);
-
+                        if (b != host.usingNotBool)
+                        {
+                            host.usingNotBool = b;
+                            EditorUtility.SetDirty(target);
+                        }
                         return;
                     }
 
@@ -286,13 +318,20 @@ public class ZenBinderInspector : Editor
 
 
 
-            host.targetBindgPath = EditorGUILayout.TextField("TargetBindingPath", host.targetBindgPath);
+            var path = EditorGUILayout.TextField("TargetBindingPath", host.targetBindgPath);
+
+            if (host.targetBindgPath != path)
+            {
+                host.targetBindgPath = path;
+                EditorUtility.SetDirty(target);
+            }
 
             if (targetValType != null && targetValType == typeof(string))
             {
 
                 bool usingFormat=EditorGUILayout.Toggle("usingFormat",host.format != null);
 
+                string newFormat;
                 if(usingFormat && string.IsNullOrEmpty( host.format))
                 {
                     host.format = "{0}";
@@ -300,11 +339,17 @@ public class ZenBinderInspector : Editor
 
                 if (usingFormat == false)
                 {
-                    host.format = null;
+                    newFormat = null;
                 }
                 else
                 {
-                    host.format = EditorGUILayout.TextField("Format", host.format);
+                    newFormat = EditorGUILayout.TextField("Format", host.format);
+                }
+                if(newFormat!= host.format)
+                {
+                    host.format = newFormat;
+
+                    EditorUtility.SetDirty(target);
                 }
             }
 
@@ -317,12 +362,16 @@ public class ZenBinderInspector : Editor
                 if (host.targetBindgPath == null)
                 {
                     host.targetBindgPath = "";
+
+                    EditorUtility.SetDirty(target);
                 }
                 foreach (var v in candidates.Where(l => l.StartsWith(host.targetBindgPath)))
                 {
                     if (GUILayout.Button(v, style))
                     {
                         host.targetBindgPath = v;
+
+                        EditorUtility.SetDirty(target);
                     }
                 }
             }
@@ -333,17 +382,18 @@ public class ZenBinderInspector : Editor
 
     private void AutoFindTargetMono(ZenBinder host, Type type)
     {
-        if(type== typeof(string))
+
         {
-            host.targetMono = host.GetComponent<UnityEngine.UI.Text>();
-            host.targetBindgPath = "text";
-            if (host.targetMono == null)
+            var t= host.GetComponent<TMPro.TextMeshProUGUI>();
+            if (t != null)
             {
-                host.targetMono = host.GetComponent<TMPro.TextMeshProUGUI>();
+                host.targetMono = t;
                 host.targetBindgPath = "text";
             }
-
         }
+
+
+       
         if (type == typeof(Sprite))
         {
             host.targetMono = host.GetComponent<UnityEngine.UI.Image>();

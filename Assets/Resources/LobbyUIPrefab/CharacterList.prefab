@@ -2212,7 +2212,7 @@ GameObject:
   - component: {fileID: 7388402659289487530}
   - component: {fileID: 7388402659289487529}
   - component: {fileID: 467273171094459614}
-  - component: {fileID: 7427411125599584975}
+  - component: {fileID: 7193704378443556695}
   m_Layer: 5
   m_Name: CurrentCharacter
   m_TagString: Untagged
@@ -2328,7 +2328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   binders:
-  - {fileID: 7631837732546200400}
+  - {fileID: 7631837732546200400, guid: 1711ed32b1ff4284188e006b69dc6ef4, type: 3}
   - {fileID: 7025547308837141464}
   - {fileID: 285606908}
   - {fileID: 1875003124}
@@ -2344,8 +2344,17 @@ MonoBehaviour:
   code: 0
   lvRate: 0
   lvStateStr: 
+  isForDetail: 0
+  atkPower: 0
+  hearts: 0
+  floatHeartWidth: 0
+  lvInfo:
+    code: 0
+    level: 0
+    expCost: 0
+    goldCost: 0
   hasCharacter: 0
---- !u!114 &7427411125599584975
+--- !u!114 &7193704378443556695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2354,16 +2363,51 @@ MonoBehaviour:
   m_GameObject: {fileID: 7388402659289487533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d57856c34f722b043b89d8af60b2e528, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zenContext: {fileID: 467273171094459614}
-  bindingPath: hasCharacter
-  targetBindgPath: 
-  targetMono: {fileID: 7388402660350608294}
-  format: 
-  usingToSetActive: 1
-  usingNotBool: 1
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 7388402659289487535}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 467273171094459614}
+        m_MethodName: ClickDetail
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7388402659360929726
 GameObject:
   m_ObjectHideFlags: 0
@@ -2715,7 +2759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7388402659632304193
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3660,7 +3704,7 @@ MonoBehaviour:
   bindingPath: lvStateStr
   targetBindgPath: text
   targetMono: {fileID: 7388402659864186555}
-  format: 
+  format: '{0}'
   usingToSetActive: 0
   usingNotBool: 0
 --- !u!1 &7388402659883725030
@@ -3822,7 +3866,7 @@ GameObject:
   - component: {fileID: 7388402659937451300}
   - component: {fileID: 7388402659937451302}
   - component: {fileID: 7388402659937451301}
-  - component: {fileID: 7631837732546200400}
+  - component: {fileID: 1662632892}
   m_Layer: 5
   m_Name: Text_Name
   m_TagString: Untagged
@@ -3946,7 +3990,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7631837732546200400
+--- !u!114 &1662632892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3962,7 +4006,7 @@ MonoBehaviour:
   bindingPath: CharacterInfo.Name
   targetBindgPath: text
   targetMono: {fileID: 7388402659937451301}
-  format: '{0}'
+  format: 
   usingToSetActive: 0
   usingNotBool: 0
 --- !u!1 &7388402659942929611
@@ -4288,6 +4332,7 @@ GameObject:
   - component: {fileID: 7388402660016808573}
   - component: {fileID: 8810473003120368021}
   - component: {fileID: 3113565205019898072}
+  - component: {fileID: 1124122421}
   m_Layer: 5
   m_Name: Character 1
   m_TagString: Untagged
@@ -4316,9 +4361,9 @@ RectTransform:
   m_Father: {fileID: 7388402658646841585}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 896, y: -706}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 784, y: 1260}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7388402660016808515
@@ -4432,7 +4477,35 @@ MonoBehaviour:
   code: 0
   lvRate: 0
   lvStateStr: 
+  isForDetail: 0
+  atkPower: 0
+  hearts: 0
+  floatHeartWidth: 0
+  lvInfo:
+    code: 0
+    level: 0
+    expCost: 0
+    goldCost: 0
   hasCharacter: 0
+--- !u!114 &1124122421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7388402660016808512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d57856c34f722b043b89d8af60b2e528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zenContext: {fileID: 3113565205019898072}
+  bindingPath: hasCharacter
+  targetBindgPath: 
+  targetMono: {fileID: 7388402660224970521}
+  format: 
+  usingToSetActive: 1
+  usingNotBool: 1
 --- !u!1 &7388402660106814644
 GameObject:
   m_ObjectHideFlags: 0
@@ -5131,8 +5204,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1876.28, y: -894.25006}
-  m_SizeDelta: {x: 1793.43, y: 1331.5002}
+  m_AnchoredPosition: {x: 1876.28, y: -853.75}
+  m_SizeDelta: {x: 1793.43, y: 1412.5002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7388402660256869842
 MonoBehaviour:

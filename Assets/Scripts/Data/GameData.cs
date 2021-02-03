@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UJ.Data;
 using UnityEngine;
+using System.Linq;
 
 public class GameData :ScriptableObject
 {
@@ -52,4 +53,51 @@ public class GameData :ScriptableObject
     }
 
 
+}
+
+
+
+
+public static class PropsExt
+{
+    public static void ApplyProps(this PropertiesData properties, GameData gameData, int paramKindCode, IEnumerable<Prop> props)
+    {
+        foreach (var p in props)
+        {
+            foreach (var bp in p.baseProp)
+            {
+                properties.ApplyPropsFromCode(gameData, paramKindCode, bp);
+            }
+
+            properties.ApplyPassive(p, paramKindCode);
+        }
+
+    }
+    public static void ApplyPropsFromCode(this PropertiesData properties, GameData gameData, int paramKindCode, int propCode)
+    {
+        ApplyProps(properties, gameData, paramKindCode, gameData.prop.Where(l => l.code == propCode));
+
+    }
+
+    static PropertiesData tempProps = new PropertiesData();
+    public static void ApplyToLayerPropsFromCode(this PropertiesData properties, GameData gameData, System.Action<PropertiesData> settingFunc, int layerCode, int propCode)
+    {
+        tempProps.Clear();
+        tempProps.ApplyPropsFromCode(gameData, 1, propCode);
+
+        settingFunc(tempProps);
+
+        var props = tempProps.properties;
+
+
+        var iter = props.GetEnumerator();
+
+
+        while (iter.MoveNext())
+        {
+            properties.SetLayerValue(layerCode, iter.Current.Key, iter.Current.Value);
+        }
+
+        tempProps.Clear();
+    }
 }
